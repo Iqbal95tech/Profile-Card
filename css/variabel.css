@@ -1,0 +1,18 @@
+:root {
+  --bg-page: #1a1a1a;
+  --bg-card: #242424;
+  --bg-btn: #2e2e2e;
+  --bg-btn-hover: #3a3a3a;
+  --border: #3c3c3c;
+  --border-hover: #c5f135;
+  --text-primary: #f0f0f0;
+  --text-muted: #9a9a9a;
+  --accent: #c5f135;
+  --accent-dark: #a8d420;
+  --avatar-ring: #c5f135;
+  --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.55);
+  --shadow-btn: 0 4px 18px rgba(0, 0, 0, 0.35);
+  --radius-card: 20px;
+  --radius-btn: 12px;
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}

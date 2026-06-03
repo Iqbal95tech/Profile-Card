@@ -1,0 +1,261 @@
+/* ── Card ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 2.5rem 2rem 2.25rem;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  /* Staggered entrance */
+  animation: cardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Avatar ── */
+.avatar-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.45s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.avatar-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) 0deg, transparent 240deg);
+  animation: spin 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.avatar {
+  display: block;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  background: #444;
+  /* Fallback placeholder when no real image */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%23555'/%3E%3Ccircle cx='48' cy='38' r='18' fill='%23888'/%3E%3Cellipse cx='48' cy='78' rx='28' ry='18' fill='%23888'/%3E%3C/svg%3E");
+  background-size: cover;
+}
+
+/* ── Profile Info ── */
+.profile-info {
+  animation: fadeUp 0.45s 0.18s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.profile-name {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.45rem, 5vw, 1.65rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.profile-location {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.profile-bio {
+  font-size: 0.925rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.55;
+  margin-bottom: 1.75rem;
+}
+
+/* ── Links Nav — 2-column grid ── */
+.links-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  animation: fadeUp 0.45s 0.26s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Last item alone → span full width */
+.link-item:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.link-item {
+  display: flex;
+  flex-direction: column; /* icon atas, label bawah */
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 1rem 0.75rem;
+  background: var(--bg-btn);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  color: var(--text-primary);
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn);
+  position: relative;
+  overflow: hidden;
+  min-height: 80px;
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+/* Shimmer overlay on hover */
+.link-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(197, 241, 53, 0.08) 60%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+
+.link-item:hover::after,
+.link-item:focus-visible::after {
+  transform: translateX(100%);
+}
+
+.link-item:hover,
+.link-item:focus-visible {
+  background: var(--bg-btn-hover);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 28px rgba(197, 241, 53, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+.link-item:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--shadow-btn);
+}
+
+/* Focus visible ring for keyboard nav */
+.link-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Icon — baris pertama */
+.link-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  opacity: 0.65;
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+}
+
+.link-item:hover .link-icon,
+.link-item:focus-visible .link-icon {
+  opacity: 1;
+  transform: scale(1.18) translateY(-1px);
+}
+
+/* Label — baris kedua */
+.link-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+/* ── Footer ── */
+.card-footer {
+  margin-top: 1.75rem;
+  font-size: 0.775rem;
+  color: #555;
+  animation: fadeUp 0.45s 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.card-footer a {
+  color: #666;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.card-footer a:hover,
+.card-footer a:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 400px) {
+  .card {
+    padding: 2rem 1.25rem 1.75rem;
+  }
+  .avatar {
+    width: 82px;
+    height: 82px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 3rem 2.5rem 2.5rem;
+    max-width: 420px;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
