@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 Profile Card
 =======
 # Social Links Profile
->>>>>>> 63fe9321ace2be3af35d0345c7fe4d07ac4167c5
+
 
 Frontend Mentor Challenge.
 
