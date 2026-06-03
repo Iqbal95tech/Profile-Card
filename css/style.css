@@ -93,39 +93,32 @@
   margin-bottom: 1.75rem;
 }
 
-/* ── Links Nav — 2-column grid ── */
+/* ── Links Nav — single column ── */
 .links-nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 0.75rem;
   animation: fadeUp 0.45s 0.26s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Last item alone → span full width */
-.link-item:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-}
-
 .link-item {
   display: flex;
-  flex-direction: column; /* icon atas, label bawah */
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  padding: 1rem 0.75rem;
+  gap: 0.65rem;
+  padding: 0.875rem 1.25rem;
   background: var(--bg-btn);
   border: 1px solid var(--border);
   border-radius: var(--radius-btn);
   color: var(--text-primary);
   font-family: "DM Sans", sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
   box-shadow: var(--shadow-btn);
   position: relative;
   overflow: hidden;
-  min-height: 80px;
   transition:
     background var(--transition),
     border-color var(--transition),
@@ -177,12 +170,12 @@
   outline-offset: 2px;
 }
 
-/* Icon — baris pertama */
+/* Icon inside button */
 .link-icon {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
-  opacity: 0.65;
+  opacity: 0.7;
   transition:
     opacity var(--transition),
     transform var(--transition);
@@ -191,14 +184,7 @@
 .link-item:hover .link-icon,
 .link-item:focus-visible .link-icon {
   opacity: 1;
-  transform: scale(1.18) translateY(-1px);
-}
-
-/* Label — baris kedua */
-.link-label {
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-  line-height: 1;
+  transform: scale(1.15);
 }
 
 /* ── Footer ── */

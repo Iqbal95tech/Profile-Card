@@ -1,10 +1,10 @@
-# QR Code Component
+Profile Card
 
 Frontend Mentor Challenge.
 
 ## Screenshot
 
-![Screenshot](./assets/screenshot.png)
+![Screenshot](assets/images/preview.jpg)
 
 ## Links
 
