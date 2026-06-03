@@ -8,7 +8,7 @@ Frontend Mentor Challenge.
 
 ## Links
 
-- Live Site URL: https://username.github.io/Profile-Card/
+- Live Site URL: https://iqbal95tech.github.io/Profile-Card/
 
 ## Built With
 
